@@ -1,0 +1,52 @@
+window.location.href='success_page?id=success';
+
+/*if(isset($_POST['add'])){
+			
+			$post = $this->input->post(null, TRUE);
+			$name = $post['nama'];
+			$email = $post['email'];
+			$subject = $post['subject'];
+			$image = "uploads/email/item-19113-9b87cf069a.PNG";
+			$pesan = $post['pesan'];
+			
+		$config = [
+		'protocol' => 'smtp',
+		'smtp_host' => 'ssl://smtp.googlemail.com',
+		'smtp_port' => 465,
+		'smtp_user' => 'ourcitrus2019@gmail.com',
+		'smtp_pass' => 'OurCitrus_2019',
+		'mailtype' => 'html',
+		'charset' => 'iso-8859-1'
+		];
+		
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+	
+		$this->email->from($email, $name);
+		
+		$this->email->to('ourcitrus@ourcitrus.id');
+	
+		$this->email->subject($subject);
+		
+		$this->email->attach($image);
+		
+		$this->email->message($pesan);
+	
+		if($this->email->send()){
+		
+		echo "<script>
+		alert('Hai ".$name."\\nTerima kasih sudah menghubungi kami \\nEmail Anda : ".$email."\\nkami telah merespon email anda dan akan segera diproses oleh management kami \\nby ourcitrus team.');
+		window.location.href='success_page?id=success';
+		</script>";
+		
+		return $this->email->send();	
+		
+			}else{
+				echo "<script>
+		alert('Hai ".$name."\\nTerima kasih sudah menghubungi kami \\nEmail Anda : ".$email."\\nkami telah merespon email anda dan akan segera diproses oleh management kami \\nby ourcitrus team.');
+		window.location.href='success_page?id=success';
+		</script>";
+			
+			}
+			
+		}*/
