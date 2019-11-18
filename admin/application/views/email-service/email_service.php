@@ -1,72 +1,64 @@
 
-<div class="jumbotron" style="background-color:#000000;">
-  <h1 class="display-4 text-center text-white">OURCITRUS <br/> Email Service</h1>
-  <p class="lead text-center text-white">Selamat Datang Dihalaman mail service <br/> OURCITRUS | PT. GEMILANG CITRUS BERJAYA</p>
-  <div class="container">
-	</div>
-  <hr class="my-4 text-white" style="color:#ffffff;">
-  <p class="lead text-center">
-    <a class="btn btn-success btn-md" href="https://ourcitrus.id/product" role="button">ourcitrus website</a>
-	<a href="/#ForToday|Future" data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> saat ini anda dapat Menggunakan layanan email service untuk melakukan Request order via email yang bisa anda pilih di kolom input pada bagian list subject <span class="red-pop">Email Order</span> untuk order via email, Komplain/permasalahan login dan service lainnya mengenai kemitraan anda di ourcitrus bisa pilih list subject <span class="red-pop">Customer Service</span>, untuk revisi order bisa pilih <span class="red-pop">Email Revisi</span>. <br/><br/> Salam Gemilang. <br> ourcitrus | For Today And Future'>Read Me Please</a>
-
-  </p>
-</div>
-
 <div class="container">
 <div class="mx-auto">
+<div class="row">
 
-<?php $this->view('message.php'); ?>
+<div class="col-sm">
+<div class="card text-white bg-primary" style="width: 18rem;">
+  <div class="card-header">
+    Email Order
+  </div>
+  <div class="card-body">
+  <small>Silahkan Dibaca terlebih dahulu mengenai layanan <b><font color="Goldenrod">Email Order</font></b> ourcitrus</small><br>
+   <tr>
+    <td> <a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> Untuk melakukan order via email service, terlebih dahulu anda harus mendowload invoice yang berupa daftar produk untuk anda isi dengan order anda, setelah selesai mengisi invoice anda bisa langsung mengupload nya di Form Email Order yang ada di tombol <span class="red-pop">Email Order</span>(yang berwarna hijau) setelah masuk ke halaman Form Email Order anda pilih tombol browse pada bagian Attachment kemudian pilih file invoice yang sebelumnya telah anda download dan isi dengan orderan anda.<br/><br/>
+	Salam Gemilang. <br> ourcitrus | For Today And Future'>Read Me</a></td>
+	<td><a href="<?=base_url()?>EmailService/EmailOrder" class="btn btn-success">Email Order</a></td>
+	<br><small>(Download Dulu Invoicenya dibawah ini)</small>
+	<td><a href="<?=base_url()?>uploads/INVOICE_BERJAYA.xlsx" class="btn btn-info mt-2 btn-block">Download Invoice</a></td>
+	</tr>
+  </div>
+</div>
+</div>
 
-<?= form_open_multipart('MailSend') ?>
+<div class="col-sm">
+<div class="card text-white bg-dark" style="width: 18rem;">
+  <div class="card-header">
+    Email Revisi
+  </div>
+  <div class="card-body">
+  <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Email Revisi</font></b> ourcitrus</small>
+  <br/><br/><br/><br/>
+  <tr>
+    <td> <a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> Email Revisi Ditujukan bagi anda yang memerlukan <span class="red">revisi data</span> kemitraan anda di ourcitrus, seperti ganti No Rekening, ganti password login, dan revisi data lainnya. silahkan langsung klik tombol Email Revisi.<br/><br/>
+	Salam Gemilang. <br> ourcitrus | For Today And Future'>Read Me</a></td>
+	<td><a href="<?=base_url()?>EmailService/EmailRevisi" class="btn btn-success">Email Revisi</a></td>	
+	</tr>
+	
+  </div>
+</div>
+</div>
 
-<div class="col-sm-8">
-  <div class="form-group">
-    <label for="name">Nama Lengkap</label>
-    <input type="text" class="demoInputBox form-control" id="name" name="userName" 
-	placeholder="Nama Lengkap Anda" required>
-  </div>
-  </div>
-  
-<div class="col-sm-8">
-  <div class="form-group">
-    <label for="email">Alamat Email</label>
-    <input type="email"  class="demoInputBox form-control" id="email" name="userEmail" placeholder="email_anda@email.com" required>
-  </div>
-  </div>
-  
-  <div class="col-sm-8">
-  <div class="form-group">
-    <label for="subject">Subject Email</label>
-	<select required id="subject" name="subject"  class="demoInputBox form-control">
-	<option value="- pilih -">- Pilih -</option>
-	<?php foreach($subject as $row):?>
-	<option value="<?=$row->name?>"><?=$row->name?></option>
-	<?php endforeach;?>
-	</select>  
-	</div>
-  </div>
-  
-  <div class="col-sm-8">
-				<div class="form-group">
-                     <label for="image">Attachment </label>
-            <input type="file" name="attachment[]" class="demoInputBox form-control" multiple><br/>
-                 </div>
-  </div>
-  
-<div class="col-sm-8">
-  <div class="form-group">
-    <label for="pesan">Isi Pesan</label>
-    <textarea name="content" class="demoInputBox ckeditor form-control" id="pesan" rows="3" cols="5" required> </textarea>
-  </div>
-  </div>
-  
-<div class="col-sm-8">
-  <div class="form-group">
-	<button type="submit" name="add" class="btn btn-primary">Send Now</button>
-	</div>
-	</div>
-<?= form_close() ?>
 
+<div class="col-sm">
+<div class="card text-white bg-info" style="width: 18rem;">
+  <div class="card-header">
+    Customer Service
+  </div>
+  <div class="card-body">
+  <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Customer Service ourcitrus</font></b></small>
+  <br/><br/><br/><br/>
+  <tr>
+    <td> <a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> Untuk Komplain /permasalahan login,Ganti No Rekening komplain bonus, permasalah login dan permasalahan lainnya seputar kemitraan anda di ourcitrus.<br/><br/>
+	Salam Gemilang. <br> ourcitrus | For Today And Future'>Read Me</a></td>
+	<td><a href="<?=base_url()?>EmailService/CustomerService" class="btn btn-success">Customer Service</a></td>
+  </tr>
+    
+  </div>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 <br/><br/>

@@ -27,5 +27,6 @@ class Emailorder extends CI_Controller {
 		$data['join'] = $this->file->joinTable();
 		$this->template->load('admin/template', 'admin/emailorder', $data);
 	}
+	
 
 }

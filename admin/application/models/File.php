@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class File extends CI_Model{
     function __construct() {
-        $this->tableName = 'data';
+        $this->tableName = 'files';
     }
     
     /*
@@ -17,16 +17,12 @@ class File extends CI_Model{
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
-            $this->db->order_by('uploaded_on','asc');
+            $this->db->order_by('created','asc');
             $query = $this->db->get();
             $result = $query->result_array();
         }
         return !empty($result)?$result:false;
     }
-	
-		public function TampilFile(){
-		return $this->db->query("SELECT * FROM files");
-	}
     
     /*
      * Insert file data into the database
@@ -37,13 +33,5 @@ class File extends CI_Model{
         return $insert?true:false;
     }
 	
-	public function joinTable()
-	{
-		$this->db->select('*');
-		$this->db->from('data');
-		$this->db->join('files','files.username=data.nama');
-		$query = $this->db->get();
-		return $query->result();
-	}
-    
+	
 }

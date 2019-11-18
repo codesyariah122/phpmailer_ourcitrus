@@ -1,20 +1,8 @@
-<div class="jumbotron">
-  <h1 class="display-4 text-center">OURCITRUS <br/> Email Service</h1>
-  <p class="lead text-center">Selamat Datang Dihalaman mail service <br/> OURCITRUS | PT. GEMILANG CITRUS BERJAYA</p>
-  <div class="container">
-	</div>
-  <hr class="my-4">
-  <p class="lead text-center">
-    <a class="btn btn-success btn-md" href="https://ourcitrus.id/product" role="button">ourcitrus website</a>
-  </p>
-</div>
-
-
 <b><?php if(isset($filenames)) echo "Successfully uploaded ".count($filenames)." files"; ?></b>
     
 <div class="container">
   <div class="row">
-  <?php if($_GET['id'] == "success"):?>
+  <?php if($_GET['id'] == "success" || $_GET['id'] == 'TerimaKasih'):?>
     <?php $this->view('message.php'); ?>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Dear Member</strong> Terima kasih sudah menghubungi kami, selanjutnya pesan anda akan segera di proses oleh team management kami.

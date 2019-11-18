@@ -54,7 +54,7 @@ INSERT INTO `data` (`id`, `nama`, `email`, `subject`, `pesan`, `created`, `updat
 --
 
 CREATE TABLE `files` (
-  `id` int(11) NOT NULL,
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL ,
   `file_name` varchar(255) NOT NULL,
   `uploaded_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` enum('1','0') NOT NULL,

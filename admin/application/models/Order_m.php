@@ -19,17 +19,12 @@ class Order_m extends CI_Model {
 	public function add($post, $data =[])
     {
         $params = [
-                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['userName']))),
+                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
 					'email' => $post['userEmail'],
 					'subject' => $post['subject'],
 					//'image' => $post['image'],
 					'pesan' => $post['content']
         ];
-		
-		if($params['subject'] == "- pilih -"){
-					$this->session->set_flashdata('empty-subject', 'subject harus dipilih');
-		}
-		    //$insert = $this->db->insert_batch('files',$params);
 			$this->db->insert($this->table, $params);
     }
 
