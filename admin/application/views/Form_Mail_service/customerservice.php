@@ -19,9 +19,33 @@
   </div>
   </div>
   
+<div class="col-sm-8">
+  <div class="form-group">
+    <label for="username">Username</label>
+	<br/><small>username login kemitraan anda di ourcitrus</small>
+    <input type="text"  class="demoInputBox form-control" id="username" name="username" placeholder="username_anda">
+  </div>
+</div>
+  
+    <div class="col-sm-8">
+  <div class="form-group">
+    <label for="notelp">No Telp</label>
+		<?php echo form_error('notelp'); ?>
+    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
+    <div class="col-sm-8">
+  <div class="form-group">
+    <label for="wa">No WhatsApp</label>
+		<?php echo form_error('wa'); ?>
+    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
   <div class="form-group">
   <p>
-    <button class="btn btn-info ml-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-info ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Ganti No Rekening
     </button>
   </p>
@@ -30,18 +54,30 @@
 	 <div class="col-sm-8">
     <label for="username">Username</label>
 	<br/><small>username login kemitraan anda di ourcitrus</small>
-    <input type="text"  class="demoInputBox form-control" id="username" name="username1" placeholder="username_anda">
+    <input type="text"  class="demoInputBox form-control" id="username" name="gantinorek" placeholder="username_anda">
   </div>
 	<div class="col-sm-8">
-        <label for="bank">Nama Bank</label>
+        <label for="bank">Nama Bank sebelumnya</label>
       <br/><small></small>
-        <input type="text"  class="demoInputBox form-control" id="bank" name="bank" placeholder="Bank XXX">
+        <input type="text"  class="demoInputBox form-control" id="bank" name="banksebelumnya" placeholder="Bank XXX">
       </div>
 	  
       <div class="col-sm-8">
-        <label for="norek">No Rekening</label>
+        <label for="norek">No Rekening sebelumnya</label>
+      <br/><small>isi dengan no rekening sebelumnya</small>
+        <input type="text"  class="demoInputBox form-control" id="norek" name="noreksebelumnya" placeholder="rek.xxxxxx">
+      </div>
+	  
+	  <div class="col-sm-8">
+        <label for="bank">Nama Bank Baru</label>
+      <br/><small></small>
+        <input type="text"  class="demoInputBox form-control" id="bank" name="bankbaru" placeholder="Bank XXX">
+      </div>
+	  
+      <div class="col-sm-8">
+        <label for="norek">No Rekening Baru</label>
       <br/><small>isi dengan no rekening baru</small>
-        <input type="text"  class="demoInputBox form-control" id="norek" name="norek" placeholder="rek.xxxxxx">
+        <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="rek.xxxxxx">
       </div>
 	  
       </div>
@@ -50,31 +86,50 @@
   
   <div class="form-group">
   <p>
-    <button class="btn btn-danger ml-3" type="button" data-toggle="collapse" data-target="#collapsebonus" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-danger ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapsebonus" aria-expanded="false" aria-controls="collapseExample">
       Komplain Bonus
     </button>
   </p>
   <div class="collapse" id="collapsebonus">
     <div class="card card-body">
 	 <div class="col-sm-8">
-	 	<input type="hidden"  class="demoInputBox form-control" name="komplain_bonus">
     <label for="username">Username</label>
 	<br/><small>username login kemitraan anda di ourcitrus</small>
-    <input type="text"  class="demoInputBox form-control" id="username" name="username2" placeholder="username_anda">
+    <input type="text"  class="demoInputBox form-control" id="username" name="bonus" placeholder="username_anda">
   </div>
   
   <div class="col-sm-8">
         <label for="bank">Nama Bank</label>
       <br/><small></small>
-        <input type="text"  class="demoInputBox form-control" id="bank" name="bank" placeholder="Bank XXX">
+        <input type="text"  class="demoInputBox form-control" id="banksebelumnya" name="bank" placeholder="Bank XXX">
       </div>
 	  
       <div class="col-sm-8">
-        <label for="norek">No Rekening</label>
-      <br/><small>isi dengan no rekening baru</small>
-        <input type="text"  class="demoInputBox form-control" id="norek" name="norek" placeholder="rek.xxxxxx">
+        <label for="norek">No Rekening </label>
+      <br/><small>isi dengan no rekening</small>
+        <input type="text"  class="demoInputBox form-control" id="noreksebelumnya" name="norek" placeholder="rek.xxxxxx">
       </div>
 	  
+	  
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+  <p>
+    <button class="btn btn-warning ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapsepassword" aria-expanded="false" aria-controls="collapseExample">
+      <font color="white">Lupa / ganti Password Login ourcitrus</font>
+    </button>
+  </p>
+  <div class="collapse" id="collapsepassword">
+    <div class="card card-body">
+	 <div class="col-sm-8">
+	 	<input type="hidden"  class="demoInputBox form-control" name="komplain_bonus">
+    <label for="username">Username</label>
+	<br/><small>username login kemitraan anda di ourcitrus</small>
+    <input type="text"  class="demoInputBox form-control" id="username" name="loginerr" placeholder="username_anda">
+  </div>
+  
       </div>
     </div>
   </div>
@@ -91,7 +146,7 @@
   <div class="col-sm-8">
 				<div class="form-group">
                      <label for="image">Attachment </label><br/>
-					<small>Silahkan klik tombol browse untuk mengupload file.</small>
+					<small>Silahkan klik tombol browse untuk mengupload file berupa gambar bukti transfer atau file document apapun.</small>
             <input type="file" name="attachment[]" class="demoInputBox form-control" multiple><br/>
                  </div>
   </div>
@@ -100,7 +155,7 @@
   <div class="form-group">
     <label for="pesan">Isi Pesan</label>
 	<?php echo form_error('content'); ?><br/>
-	<small>Apabila ada pesan yang ingin disampaikan kepada management silahkan anda ketik pesan anda di field input pesan dibawah ini.</small>
+	<small>Untuk menyampaikan komplain anda, silahkan mengisi di field komplain textarea dibawah ini.</small>
     <textarea name="content" class="demoInputBox ckeditor form-control" id="pesan" rows="3" cols="5"> 
 	 <?=set_value('content');?>
 	</textarea>

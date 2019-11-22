@@ -19,6 +19,30 @@
   </div>
   </div>
   
+<div class="col-sm-8">
+   <div class="form-group">
+    <label for="username">Username</label>
+	<br/><small>username login kemitraan anda di ourcitrus</small>
+    <input type="text"  class="demoInputBox form-control" id="username" name="username" placeholder="username_anda">
+  </div>
+</div>
+  
+  <div class="col-sm-8">
+  <div class="form-group">
+    <label for="notelp">No Telp</label>
+		<?php echo form_error('notelp'); ?>
+    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
+    <div class="col-sm-8">
+  <div class="form-group">
+    <label for="wa">No WhatsApp</label>
+		<?php echo form_error('wa'); ?>
+    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
   <div class="form-group">
   <p>
     <button class="btn btn-info ml-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -27,12 +51,11 @@
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
-	
-  <div class="col-sm-8">
-    <label for="username">Username</label>
-	<br/><small>username login kemitraan anda di ourcitrus</small>
-    <input type="text"  class="demoInputBox form-control" id="username" name="username1" placeholder="username_anda">
-  </div>
+	<div class="col-sm-8">
+		<label for="username">Username</label>
+		<br/><small>username login kemitraan anda di ourcitrus</small>
+		<input type="text"  class="demoInputBox form-control" id="username" name="gantinorek" placeholder="username_anda">
+	  </div>
   
 	<div class="col-sm-8">
         <label for="bank">Nama Bank</label>
@@ -62,7 +85,7 @@
  <div class="col-sm-8">
     <label for="username2">Username</label>
 	<br/><small>username login kemitraan anda di ourcitrus</small>
-    <input type="text"  class="demoInputBox form-control" id="username2" name="username2" placeholder="username_anda">
+    <input type="text"  class="demoInputBox form-control" id="username2" name="loginerr" placeholder="username_anda">
   </div>
  </div>
  </div>

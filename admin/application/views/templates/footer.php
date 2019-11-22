@@ -1,10 +1,25 @@
- <footer class="footer bg-dark">
-      <div class="container">
-<span class="text-right text-white">Made with <i class="fa fa-heart pulse" style="color:salmon"></i> in <a href="https://ourcitrus.id/" style="color:PaleVioletRed; font-weight:bold;" target="_blank">Sidoarjo | Indonesia</a>&nbsp;<i class="fa fa-leaf pulse" style="color:lightgreen"></i><?php for($i=0;$i<105;$i++){echo "&nbsp;";}?>Develope by : <i class="fa fa-empire pulse" style="color:Lavender;"></i>&nbsp;<a href="https://codesyariah122.github.io" style="color:DarkOrchid; font-weight:bold;">codesyariah</a> 
-</span>   
-</div>
-    </footer>
 
+<!-- Footer -->
+<footer class="footer bg-dark">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+      <p class="text-center text-white">Made with <i class="fa fa-heart pulse" style="color:salmon"></i> in <a href="https://ourcitrus.id/" style="color:PaleVioletRed; font-weight:bold;" target="_blank">Sidoarjo | Indonesia</a>&nbsp;<i class="fa fa-leaf pulse" style="color:lightgreen"></i>
+	  </p>   
+
+      </div>
+
+
+</footer>
+<!-- Footer -->
 <!-- Optional JavaScript -->
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

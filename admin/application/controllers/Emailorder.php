@@ -23,8 +23,8 @@ class Emailorder extends CI_Controller {
 		$data['logo_max'] = "<span class='logo-lg'><b>OURCITRUS</b></span> <i class='fa fa-cubes'></i>";
 
 		$data['row'] = $this->order_m->TampilOrder();
-		$data['files'] = $this->file->TampilFile();
-		$data['join'] = $this->file->joinTable();
+		$data['files'] = $this->file->tampilFiles();
+		//$data['join'] = $this->file->joinTable();
 		$this->template->load('admin/template', 'admin/emailorder', $data);
 	}
 	

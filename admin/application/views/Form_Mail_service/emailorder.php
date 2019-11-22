@@ -30,6 +30,22 @@
   
   <div class="col-sm-8">
   <div class="form-group">
+    <label for="notelp">No Telp</label>
+		<?php echo form_error('notelp'); ?>
+    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
+    <div class="col-sm-8">
+  <div class="form-group">
+    <label for="wa">No WhatsApp</label>
+		<?php echo form_error('wa'); ?>
+    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+  </div>
+  </div>
+  
+  <div class="col-sm-8">
+  <div class="form-group">
     <label for="subject">Subject Email</label>
 	<select id="subject" name="subject"  class="demoInputBox form-control">
 	<option value="email-order">Email Order</option>
@@ -40,7 +56,7 @@
   <div class="col-sm-8">
 				<div class="form-group">
                      <label for="image">Attachment </label><br/>
-					<small>Silahkan Upload File Invoice Yang sebelumnya telah anda download dan input data orderan anda.<br/><font color="firebrick">( jika ada bukti transfer bisa di upload berbarengan bersama file invoice nya)</font></small>
+					<small>Silahkan Upload File Invoice Yang sebelumnya telah anda download dan anda inputkan dengan data orderan anda ke file invoice excel tersebut.<br/><font color="firebrick">( jika ada bukti transfer bisa di upload berbarengan bersama file invoice nya)</font></small>
             <input type="file" name="attachment[]" class="demoInputBox form-control" multiple><br/>
 			<small><font color="firebrick">(Belum Download File Invoice, Klik Link Download Dibawah ini)</font></small><br/>
 			<a href="<?=base_url()?>uploads/INVOICE_BERJAYA.xlsx" class="btn btn-info mt-2 btn-block">Download Invoice</a>
@@ -51,7 +67,7 @@
   <div class="form-group">
     <label for="pesan">Isi Pesan</label>
 	<?php echo form_error('content'); ?><br/>
-	<small>Untuk Melakukan order bisa langsung inputkan detail produk yang akan anda order di kolom pesan di bawah ini</small>
+	<small>Untuk Melakukan order secara langsung bisa anda inputkan detail produk yang akan anda order di field pesan di bawah ini</small>
     <textarea name="content" class="demoInputBox ckeditor form-control" id="pesan" rows="3" cols="5"> 
 	 <?=set_value('content');?>
 	</textarea>

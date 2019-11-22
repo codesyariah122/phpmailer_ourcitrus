@@ -11,31 +11,33 @@
   </button>
 		</div>
 	</div>
-	
-	<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">OURCITRUS Website</h5>
-        <p class="card-text">Anda sudah melakukan proses kirim pesan melalui aplikasi mail service kami, untuk kembali ke halaman utama, silahkan klik tombol dibawah.</p>
-        <a href="https://ourcitrus.id/" class="btn btn-primary">Go ourcitrus.id</a>
-      </div>
-    </div>
-  </div>
-  
-  <?php endif;?>
-  
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Kembali Ke Halaman Mail Service</h5>
-        <p class="card-text">Untuk kembali ke halaman mail service silahkan klik tombol di bawah.</p>
-        <a href="<?=base_url()?>EmailService" class="btn btn-primary">Back To Message</a>
-      </div>
-    </div>
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="card" style="width: 18rem;">
+  <img src="<?=base_url()?>assets/img/parallax35.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">OURCITRUS Website</h5>
+    <p class="card-text">Anda sudah melakukan proses kirim pesan melalui aplikasi mail service kami, untuk kembali ke halaman utama, silahkan klik tombol dibawah.</p>
+    <a href="https://ourcitrus.id/" class="btn btn-primary">Go ourcitrus.id</a>
   </div>
 </div>
-
+</div>
+	
+  <?php endif;?>
+  
+<div class="col-sm-4">
+<div class="card" style="width: 18rem;">
+  <img src="<?=base_url()?>assets/img/parallax21.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Kembali Ke Halaman Mail Service</h5>
+    <p class="card-text">Untuk kembali ke halaman mail service silahkan klik tombol di bawah.</p><br/>
+    <a href="<?=base_url()?>EmailService" class="btn btn-primary">Back To Message</a>
+  </div>
+</div>
+</div>
+  
+  </div>
 	
 </div>
 <br/><br/>

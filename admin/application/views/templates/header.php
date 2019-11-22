@@ -150,28 +150,60 @@ body > .container {
 
 .jumboku
 {
-              background-image: url("<?=base_url()?>assets/img/parallax32.jpg");
+              background-image: url("<?=base_url()?>assets/img/parallax31.jpg");
               background-size: cover;
               color: #faf0f0;
               /*text-shadow: 3px 2px rgb(99, 126, 151);*/
 			  height: 30em;
 }
+.card-columns {
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+}
 
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        -webkit-column-count: 5;
+        -moz-column-count: 5;
+        column-count: 5;
+    }
+}
 
 	</style>
     <title><?=$title;?></title>
   </head>
   <body>
   
-  <div class="jumbotron jumboku bg-dark">
-  <div class="container text-success text-center">
-
-<div id="typed-strings">
-<h1 class="display-4">OURCITRUS <br/> Email Service&nbsp;<i class="fa fa-pagelines fa-lg" style="color:SpringGreen;"></i></h1>
+<div class="jumbotron jumboku bg-dark">
+  <div class="container text-center mt-4">
+<h1 class="display-4 text-dark">OURCITRUS <br/> Email Service&nbsp;<i class="fa fa-paper-plane fa-lg" style="color:ForestGreen;"></i></h1>
 </div>
-<span id="typed"></span>
-
-  <p class="lead text-center text-danger">Selamat Datang Dihalaman email service <br/> OURCITRUS | PT. GEMILANG CITRUS BERJAYA</p>
 
     <hr style="color:Goldenrod !important;">
     <p class="lead text-center">
@@ -179,7 +211,7 @@ body > .container {
 	<a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> saat ini anda dapat Menggunakan layanan email service untuk melakukan Request order via email yang bisa anda pilih di kolom Card Menu dibawah ini <span class="red-pop">Email Order</span> untuk order via email, Komplain/permasalahan login, komplain Bonus dan komplain lainnya seputar kemitraan anda di ourcitrus pilih card menu <span class="red-pop">Customer Service</span>, untuk revisi data kemitraan anda di ourcitrus seperti ganti password, ganti no rekening dan lain-lain bisa pilih card menu <span class="red-pop">Email Revisi</span>. <br/><br/> Salam Gemilang. <br> ourcitrus | For Today And Future'><font color="white">Read Me Please</font></a>
 	<?php 
 	//echo $_SERVER['REQUEST_URI'];
-	if( $_SERVER['REQUEST_URI'] == '/EmailService'): 
+	if( $_SERVER['REQUEST_URI'] == '/EmailService' || $_SERVER['REQUEST_URI'] == '/MailSend/success_page?id=success'): 
 	echo ''; 
 	else:
 	?>

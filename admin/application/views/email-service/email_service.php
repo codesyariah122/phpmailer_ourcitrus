@@ -1,14 +1,11 @@
-
 <div class="container">
-<div class="mx-auto">
 <div class="row">
 
-<div class="col-sm">
-<div class="card text-white bg-primary" style="width: 18rem;">
-  <div class="card-header">
-    Email Order
-  </div>
-  <div class="card-body">
+<div class="col-sm-12 col-md-4 mt-2">
+<div class="card text-white" style="width: 18rem;">
+<img src="<?=base_url()?>assets/img/parallax35.jpg" class="card-img-top" alt="...">
+  <div class="card-body bg-dark">
+  <h5 class="card-title">Email Order</h5>
   <small>Silahkan Dibaca terlebih dahulu mengenai layanan <b><font color="Goldenrod">Email Order</font></b> ourcitrus</small><br>
    <tr>
     <td> <a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> Untuk melakukan order via email service, terlebih dahulu anda harus mendowload invoice yang berupa daftar produk untuk anda isi dengan order anda, setelah selesai mengisi invoice anda bisa langsung mengupload nya di Form Email Order yang ada di tombol <span class="red-pop">Email Order</span>(yang berwarna hijau) setelah masuk ke halaman Form Email Order anda pilih tombol browse pada bagian Attachment kemudian pilih file invoice yang sebelumnya telah anda download dan isi dengan orderan anda.<br/><br/>
@@ -21,12 +18,11 @@
 </div>
 </div>
 
-<div class="col-sm">
-<div class="card text-white bg-dark" style="width: 18rem;">
-  <div class="card-header">
-    Email Revisi
-  </div>
-  <div class="card-body">
+<div class="col-sm-12 col-md-4 mt-2">
+<div class="card text-white" style="width: 18rem;">
+<img src="<?=base_url()?>assets/img/parallax31.jpg" class="card-img-top" alt="...">
+  <div class="card-body bg-dark">
+  <h5 class="card-title">Email Revisi</h5>
   <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Email Revisi</font></b> ourcitrus</small>
   <br/><br/><br/><br/>
   <tr>
@@ -40,17 +36,16 @@
 </div>
 
 
-<div class="col-sm">
-<div class="card text-white bg-info" style="width: 18rem;">
-  <div class="card-header">
-    Customer Service
-  </div>
-  <div class="card-body">
-  <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Customer Service ourcitrus</font></b></small>
+<div class="col-sm-12 col-md-4 mt-2">
+<div class="card text-white" style="width: 18rem;">
+<img src="<?=base_url()?>assets/img/parallax21.jpg" class="card-img-top" alt="...">
+  <div class="card-body bg-dark">
+  <h5 class="card-title">Customer Service</h5>
+  <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Customer Service</font></b> ourcitrus</small>
   <br/><br/><br/><br/>
   <tr>
     <td> <a data-toggle="popover" data-html="true" title="Detail Service" class="btn btn-danger" data-content='Dear Member ourcitrus <br> Untuk Komplain /permasalahan login,Ganti No Rekening komplain bonus, permasalah login dan permasalahan lainnya seputar kemitraan anda di ourcitrus.<br/><br/>
-	Salam Gemilang. <br> ourcitrus | For Today And Future'>Read Me</a></td>
+	Salam Gemilang. <br> ourcitrus | For Today And Future'><font color="white">Read Me</font></a></td>
 	<td><a href="<?=base_url()?>EmailService/CustomerService" class="btn btn-success">Customer Service</a></td>
   </tr>
     
@@ -58,7 +53,6 @@
 </div>
 </div>
 
-</div>
 </div>
 </div>
 <br/><br/>

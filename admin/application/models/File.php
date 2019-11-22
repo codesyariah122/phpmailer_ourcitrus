@@ -1,6 +1,7 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class File extends CI_Model{
+	private $tableName;
     function __construct() {
         $this->tableName = 'files';
     }
@@ -10,26 +11,28 @@ class File extends CI_Model{
      * @param id returns a single record if specified, otherwise all records
      */
     public function getRows($id=''){
-        $this->db->select('id,file_name,uploaded_on');
+        $this->db->select('*');
         $this->db->from('files');
-        if($id){
-            $this->db->where('id',$id);
-            $query = $this->db->get();
-            $result = $query->row_array();
-        }else{
-            $this->db->order_by('created','asc');
-            $query = $this->db->get();
-            $result = $query->result_array();
+        if($id != null){
+            $this->db->where('id_files', $id);
         }
-        return !empty($result)?$result:false;
+
+        $query = $this->db->get();
+        return $query;
     }
+	
+	public function tampilFiles()
+	{
+		$query = $this->db->query("SELECT * FROM files;");
+		return $query;
+	}
     
     /*
      * Insert file data into the database
      * @param array the data for inserting into the table
      */
     public function insert($data = array()){
-        $insert = $this->db->insert_batch('files',$data);
+        $insert = $this->db->insert_batch($this->tableName,$data);
         return $insert?true:false;
     }
 	

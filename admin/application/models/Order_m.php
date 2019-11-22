@@ -18,11 +18,28 @@ class Order_m extends CI_Model {
 	
 	public function add($post, $data =[])
     {
+		if($post['gantinorek']):
+				$aduan = "Ganti No Rekening";
+				elseif($post['bonus']):
+				$aduan = "Komplain Bonus";
+				elseif($post['loginerr']):
+				$aduan = "Lupa / Ganti Password";
+				elseif($post['subject'] == 'email-order'):
+				$aduan = "Order Via Email";
+				endif;
+		$bank = $post['bank'];
+		$bank .= ' - '; 
+		$bank .= $post['norek'];
         $params = [
                     'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
 					'email' => $post['userEmail'],
-					'subject' => $post['subject'],
+					'username' => $post['username'],
+					'notelp' => $post['notelp'],
+					'wa' => $post['wa'],
+					'aduan' => $aduan,
+					'bank' => $bank,
 					//'image' => $post['image'],
+					'subject' => $post['subject'],
 					'pesan' => $post['content']
         ];
 			$this->db->insert($this->table, $params);
@@ -34,8 +51,13 @@ class Order_m extends CI_Model {
         $this->db->delete('data');
     }
 	
+	public function joinFile()
+	{
+		$this->file->file_by_username();
+	}
+	
 	public function TampilOrder(){
-		return $this->db->query("SELECT id, nama, email, subject, pesan, created, updated FROM data WHERE subject='email-order'");
+		return $this->db->query("SELECT id, nama, email, username, subject, pesan, created, updated FROM data WHERE subject='email-order'");
 	}
 	
 	public function TampilRevisi(){

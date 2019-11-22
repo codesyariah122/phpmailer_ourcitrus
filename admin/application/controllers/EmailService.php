@@ -47,6 +47,8 @@ class EmailService extends CI_Controller {
 						<tr style="background-color:#F8F8FF;">
 						<th>Username</th>
 						<th>Email</th>
+						<th>Telp</th>
+						<th>Whatsapp</th>
 						<th>Layanan</th>
 						<th>Message</th>
 						</tr>
@@ -54,18 +56,19 @@ class EmailService extends CI_Controller {
 						<td>'
 						.$post['username'].'</td>
 						<td>'.$post['userEmail'].'</td>
+						<td>'.$post['notelp'].'</td>
+						<td>'.$post['wa'].'</td>
 						<td>'.$post['subject'].'</td>
 						<td>'.$post["content"].'</td>
 						</tr>
 						</table>';
-
 				$mail->IsSMTP();
 				$mail->SMTPDebug = 0;
 				$mail->SMTPAuth = TRUE;
 				$mail->SMTPSecure = "ssl";
 				$mail->Port     = 465;  
 				$mail->Username = "ourcitrus2019@gmail.com";
-				$mail->Password = "Bismillah_|123654";
+				$mail->Password = "Bismillah_|123654789";
 				$mail->Host     = "ssl://smtp.googlemail.com";
 				$mail->Mailer   = "smtp";
 				
@@ -82,10 +85,8 @@ class EmailService extends CI_Controller {
 				foreach ($_FILES["attachment"]["name"] as $k => $v) {
 					$mail->AddAttachment( $_FILES["attachment"]["tmp_name"][$k], $_FILES["attachment"]["name"][$k] );
 				}
-
+				
 				$mail->IsHTML(true);
-
-
 				if(!$mail->Send()) {
 					$this->session->set_flashdata('error', 'Gagal Mengirim Email!');
 					redirect('MailSend/err_page?id=err');
@@ -94,6 +95,7 @@ class EmailService extends CI_Controller {
 					$this->order_m->add($post);
 					
 					$this->session->set_flashdata('success', 'Data Berhasil disimpan ke database ourcitrus');
+					
 					echo "<script>
 					alert('Hai ".$post['fullName']."\\nTerima kasih sudah menghubungi kami \\nEmail Anda : ".$post['userEmail']."\\nkami telah merespon email anda dan akan segera diproses oleh management kami \\nby ourcitrus team.');
 					window.location.href='".base_url()."MailSend/success_page?id=success';
@@ -137,7 +139,6 @@ class EmailService extends CI_Controller {
                 $this->session->set_flashdata('statusMsg',$statusMsg);
             }
         }	
-
 		endif;		
 							 
 		}
@@ -145,17 +146,14 @@ class EmailService extends CI_Controller {
 	
 	//customer service
 	public function CustomerService()
-	{		
-	
+	{
 	$this->load->library('form_validation');
 				$this->form_validation->set_rules('fullName','Nama Lengkap','required');
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
-				//$this->form_validation->set_rules('username','UserName','required');
+				$this->form_validation->set_rules('username','UserName','required');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
 				$this->form_validation->set_rules('content','Pesan(Message)','required');
-				
-				
 				$this->form_validation->set_message('required', '%s Masih Kosong Silahkan Diisi Gan');
 				$this->form_validation->set_error_delimiters('<div class="alert alert-danger mt-2" role="alert">', "</div>");
 		if ($this->form_validation->run() == FALSE)
@@ -168,10 +166,12 @@ class EmailService extends CI_Controller {
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
 				
-				if($post['username1']):
+				if($post['gantinorek']):
 				$aduan = "Ganti No Rekening";
-				elseif($post['username2']):
+				elseif($post['bonus']):
 				$aduan = "Komplain Bonus";
+				elseif($post['loginerr']):
+				$aduan = "Permasalahan User Login";
 				endif;
 				
 					$body = '
@@ -185,21 +185,27 @@ class EmailService extends CI_Controller {
 						<th>Username</th>
 						<th>Aduan</th>
 						<th>Email</th>
-						<th>Bank</th>
+						<th>No Telp</th>
+						<th>WhatsApp</th>
+						<th>Bank Sebelumnya</th>
+						<th>Ganti Bank</th>
 						<th>Message</th>
 						</tr>
 						<tr>
 						<td>'
-						.$post['username1'].$post['username2'].'</td>
+						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
 						<td>'.$post['userEmail'].'</td>
-						<td> '.$post['bank'].' - '.$post['norek'].' </td>
+						<td>'.$post['notelp'].'</td>
+						<td>'.$post['wa'].'</td>
+						<td> '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' </td>
+						<td> '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
 						<td>'.$post["content"].'</td>
 						</tr>
 						</table>';
 
 				$mail->IsSMTP();
-				$mail->SMTPDebug = 0;
+				$mail->SMTPDebug = 3;
 				$mail->SMTPAuth = TRUE;
 				$mail->SMTPSecure = "ssl";
 				$mail->Port     = 465;  
@@ -221,7 +227,7 @@ class EmailService extends CI_Controller {
 				foreach ($_FILES["attachment"]["name"] as $k => $v) {
 					$mail->AddAttachment( $_FILES["attachment"]["tmp_name"][$k], $_FILES["attachment"]["name"][$k] );
 				}
-
+				
 				$mail->IsHTML(true);
 
 
@@ -251,7 +257,7 @@ class EmailService extends CI_Controller {
 						// File upload configuration
 						$uploadPath = 'uploads/email/';
 						$config['upload_path'] = $uploadPath;
-						$config['allowed_types'] = '*';
+						$config['allowed_types'] = 'jpg|png|jpeg|xls|xlsx|pdf|docx|gif';
 						
 						// Load and initialize upload library
 						$this->load->library('upload', $config);
@@ -262,7 +268,9 @@ class EmailService extends CI_Controller {
                     // Uploaded file data
                     $fileData = $this->upload->data();
                     $uploadData[$i]['file_name'] = $fileData['file_name'];
-					$uploadData[$i]['username'] = $_POST['userName'];
+					/*$uploadData[$i]['username'] = $post['username1'];
+					$uploadData[$i]['username'] = $post['username2'];
+					$uploadData[$i]['username'] = $post['username3']; */
                     $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s");
                 }
             }//for
@@ -288,6 +296,8 @@ class EmailService extends CI_Controller {
 	$this->load->library('form_validation');
 				$this->form_validation->set_rules('fullName','Nama Lengkap','required');
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
+				//$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
+				//$this->form_validation->set_rules('wa', 'WA', 'required');
 				//$this->form_validation->set_rules('username1','UserName','required');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
@@ -306,10 +316,12 @@ class EmailService extends CI_Controller {
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
 				
-				if($post['username1']):
-				$aduan = "Revisi Data Bank";
-				elseif($post['username2']):
+				if($post['gantinorek']):
+				$aduan = "Ganti No Rekening";
+				elseif($post['loginerr']):
 				$aduan = "Ganti password login";
+				elseif($post['gantinorek'] || $post['loginerr']):
+				$aduan = "Ganti password login | Revisi Data Bank";
 				endif;
 				
 					$body = '
@@ -323,14 +335,18 @@ class EmailService extends CI_Controller {
 						<th>Username</th>
 						<th>Aduan</th>
 						<th>Email</th>
+						<th>No Telp</th>
+						<th>No WhatsApp</th>
 						<th>Bank</th>
 						<th>Message</th>
 						</tr>
 						<tr>
 						<td>'
-						.$post['username1'].", ".$post['username2'].'</td>
+						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
 						<td>'.$post['userEmail'].'</td>
+						<td>'.$post['notelp'].'</td>
+						<td>'.$post['wa'].'</td>
 						<td> '.$post['bank'].' - '.$post['norek'].' </td>
 						<td>'.$post["content"].'</td>
 						</tr>
@@ -400,7 +416,7 @@ class EmailService extends CI_Controller {
                     // Uploaded file data
                     $fileData = $this->upload->data();
                     $uploadData[$i]['file_name'] = $fileData['file_name'];
-					$uploadData[$i]['username'] = $_POST['userName'];
+					$uploadData[$i]['username'] = $post['username'];
                     $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s");
                 }
             }//for
