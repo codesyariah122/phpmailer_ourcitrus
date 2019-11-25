@@ -1,0 +1,8 @@
+Operation Mode:					Access Point
+Wireless Network Name(SSID):			TP-LINK_AP_57D6
+Wireless Channel:				Auto(Current channel 8)
+Wireless Security Mode:				Most Secure(WPA/WPA2-PSK)
+Local AP Wireless Password:				ourcitrus123654
+
+Default Access:					http://tplinkap.net
+LAN IP Address:					192.168.0.254
