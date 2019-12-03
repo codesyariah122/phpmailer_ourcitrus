@@ -25,6 +25,11 @@ class Emailrevisi extends CI_Controller {
 		$data['row'] = $this->order_m->TampilRevisi();
 
 		$data['files'] = $this->file->tampilFiles();
+		
+		$data['usernamefiles'] = $this->file->tampilUsernameFiles();
+		
+		$data['usernamedata'] = $this->order_m->ambilusernameData();
+
 		$this->template->load('admin/template', 'admin/emailrevisi', $data);
 	}
 

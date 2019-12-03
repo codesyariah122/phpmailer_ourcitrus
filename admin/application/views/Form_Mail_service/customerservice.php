@@ -1,5 +1,5 @@
 <div class="container">
-<h1 class="text-center">From Customer Service</h1>
+<h1 class="text-center">Form Customer Service</h1>
 <div class="row">
 <?php $this->view('message.php'); ?>
 <?= form_open_multipart('') ?>
@@ -27,11 +27,11 @@
   </div>
 </div>
   
-    <div class="col-sm-8">
+     <div class="col-sm-8">
   <div class="form-group">
     <label for="notelp">No Telp</label>
 		<?php echo form_error('notelp'); ?>
-    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="notelp" value="<?=set_value('notelp');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx- xxxx-xxxx">
   </div>
   </div>
   
@@ -39,7 +39,7 @@
   <div class="form-group">
     <label for="wa">No WhatsApp</label>
 		<?php echo form_error('wa'); ?>
-    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="wa" value="<?=set_value('wa');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx- xxxx-xxxx">
   </div>
   </div>
   
@@ -59,25 +59,25 @@
 	<div class="col-sm-8">
         <label for="bank">Nama Bank sebelumnya</label>
       <br/><small></small>
-        <input type="text"  class="demoInputBox form-control" id="bank" name="banksebelumnya" placeholder="Bank XXX">
+        <input type="text"  class="demoInputBox form-control" id="bank" name="banksebelumnya" placeholder="">
       </div>
 	  
       <div class="col-sm-8">
         <label for="norek">No Rekening sebelumnya</label>
       <br/><small>isi dengan no rekening sebelumnya</small>
-        <input type="text"  class="demoInputBox form-control" id="norek" name="noreksebelumnya" placeholder="rek.xxxxxx">
+        <input type="text"  class="demoInputBox form-control" id="norek" name="noreksebelumnya" placeholder="">
       </div>
 	  
 	  <div class="col-sm-8">
         <label for="bank">Nama Bank Baru</label>
       <br/><small></small>
-        <input type="text"  class="demoInputBox form-control" id="bank" name="bankbaru" placeholder="Bank XXX">
+        <input type="text"  class="demoInputBox form-control" id="bank" name="bankbaru" placeholder="">
       </div>
 	  
       <div class="col-sm-8">
         <label for="norek">No Rekening Baru</label>
       <br/><small>isi dengan no rekening baru</small>
-        <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="rek.xxxxxx">
+        <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="">
       </div>
 	  
       </div>
@@ -116,9 +116,10 @@
   </div>
   
   <div class="form-group">
+  <small class="text-center">Ketikan dikolom pesan dibagian paling bawah form ini, mengenai login anda yang bermasalah.</small>
   <p>
     <button class="btn btn-warning ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapsepassword" aria-expanded="false" aria-controls="collapseExample">
-      <font color="white">Lupa / ganti Password Login ourcitrus</font>
+      <font color="white">Permasalahan Login</font>
     </button>
   </p>
   <div class="collapse" id="collapsepassword">
@@ -164,7 +165,7 @@
   
 <div class="col-sm-8">
   <div class="form-group">
-	<button type="submit" name="add" class="btn btn-primary">Send Now</button>
+	<button type="submit" name="add_cs" class="btn btn-primary">Send Now</button>
 	</div>
 	</div>
 <?= form_close() ?>

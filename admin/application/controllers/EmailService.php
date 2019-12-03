@@ -9,34 +9,33 @@ class EmailService extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "OURCITRUS | Admin";
-				
+		
                         $this->template->load('template', 'email-service/email_service', $data);
 						$this->load->view('chat.php');
 	}
 	
 	public function EmailOrder()
 	{		
-	
 	$this->load->library('form_validation');
 				$this->form_validation->set_rules('fullName','Nama Lengkap','required');
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
 				$this->form_validation->set_rules('username','UserName','required');
-				//$this->form_validation->set_rules('bank','Bank','required');
-				//$this->form_validation->set_rules('norek','noRekening','required');
+				$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
+				$this->form_validation->set_rules('wa', 'WA');
 				$this->form_validation->set_rules('content','Pesan(Message)','required');
-				
-				
-				$this->form_validation->set_message('required', '%s Masih Kosong Silahkan Diisi Gan');
+				$this->form_validation->set_message('required', '%s Masih Kosong Silahkan Diisi');
 				$this->form_validation->set_error_delimiters('<div class="alert alert-danger mt-2" role="alert">', "</div>");
+				
 		if ($this->form_validation->run() == FALSE)
         {
 		$data['title'] = "OurCitrus | EmailOrder";
 		$this->template->load('template', 'Form_Mail_service/emailorder', $data);
 		$this->load->view('chat.php');
 		}else{
-			if(isset($_POST['add'])):
+			if(isset($_POST['add_order'])):
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
+				
 					$body = '
 						<html>
 						<body>
@@ -62,6 +61,7 @@ class EmailService extends CI_Controller {
 						<td>'.$post["content"].'</td>
 						</tr>
 						</table>';
+						
 				$mail->IsSMTP();
 				$mail->SMTPDebug = 0;
 				$mail->SMTPAuth = TRUE;
@@ -78,8 +78,6 @@ class EmailService extends CI_Controller {
 					
 				$mail->Subject = htmlspecialchars($post["subject"]);
 				$mail->WordWrap   = 80;
-				//$mail->Body = $post['username'];
-				//$mail->AltBody = $post['norek'];
 				$mail->MsgHTML($body);
 				
 				foreach ($_FILES["attachment"]["name"] as $k => $v) {
@@ -105,7 +103,7 @@ class EmailService extends CI_Controller {
 					
 				$filesCount = count($_FILES['attachment']['name']);
 						for($i = 0; $i < $filesCount; $i++){
-						$_FILES['file']['name']     = $_FILES['attachment']['name'][$i];
+						$_FILES['file']['name']     = $post['username'].'_'.$_FILES['attachment']['name'][$i];
 						$_FILES['file']['type']     = $_FILES['attachment']['type'][$i];
 						$_FILES['file']['tmp_name'] = $_FILES['attachment']['tmp_name'][$i];
 						$_FILES['file']['error']     = $_FILES['attachment']['error'][$i];
@@ -125,7 +123,7 @@ class EmailService extends CI_Controller {
                     // Uploaded file data
                     $fileData = $this->upload->data();
                     $uploadData[$i]['file_name'] = $fileData['file_name'];
-					$uploadData[$i]['username'] = $_POST['userName'];
+					$uploadData[$i]['username'] = $post['username'];
                     $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s");
                 }
             }//for
@@ -151,6 +149,8 @@ class EmailService extends CI_Controller {
 				$this->form_validation->set_rules('fullName','Nama Lengkap','required');
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
 				$this->form_validation->set_rules('username','UserName','required');
+				$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
+				$this->form_validation->set_rules('wa', 'WA');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
 				$this->form_validation->set_rules('content','Pesan(Message)','required');
@@ -162,16 +162,28 @@ class EmailService extends CI_Controller {
 		$this->template->load('template', 'Form_Mail_service/customerservice', $data);
 		$this->load->view('chat.php');
 		}else{
-			if(isset($_POST['add'])):
+			if(isset($_POST['add_cs'])):
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
 				
-				if($post['gantinorek']):
+				if($post['gantinorek'] != ''):
 				$aduan = "Ganti No Rekening";
-				elseif($post['bonus']):
+				elseif($post['loginerr'] != ''):
+				$aduan = "Ganti password login";
+				elseif($post['bonus'] != ''):
 				$aduan = "Komplain Bonus";
-				elseif($post['loginerr']):
-				$aduan = "Permasalahan User Login";
+				endif;
+				if($post['gantinorek'] != '' && $post['loginerr'] != '' && $post['bonus'] != '' ):
+				$aduan = "Ganti password login | Revisi Data Bank | Komplain Bonus";
+				endif;
+				if($post['gantinorek'] != '' && $post['loginerr'] != ''):
+				$aduan = "Revisi Data Bank | Ganti Password Login";
+				endif;
+				if($post['gantinorek'] != '' && $post['bonus'] != ''):
+				$aduan = "Revisi Data Bank | Komplain Bonus";
+				endif;
+				if($post['loginerr'] != '' && $post['bonus'] != ''):
+				$aduan = "Ganti Password | Komplain Bonus";
 				endif;
 				
 					$body = '
@@ -183,34 +195,34 @@ class EmailService extends CI_Controller {
 						<table border="1">
 						<tr style="background-color:#F8F8FF;">
 						<th>Username</th>
-						<th>Aduan</th>
+						<th>Layanan</th>
+						<th>Bank</th>
 						<th>Email</th>
 						<th>No Telp</th>
 						<th>WhatsApp</th>
-						<th>Bank Sebelumnya</th>
-						<th>Ganti Bank</th>
+						<th>Ganti Bank/Rekening</th>
 						<th>Message</th>
 						</tr>
 						<tr>
 						<td>'
 						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
+						<td>'.$post['bank'].' - '.$post['norek'].'</td>
 						<td>'.$post['userEmail'].'</td>
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
-						<td> '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' </td>
-						<td> '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
+						<td> Bank Sebelumnya : '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' <br/> Bank Baru : '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
 						<td>'.$post["content"].'</td>
 						</tr>
 						</table>';
 
 				$mail->IsSMTP();
-				$mail->SMTPDebug = 3;
+				$mail->SMTPDebug = 0;
 				$mail->SMTPAuth = TRUE;
 				$mail->SMTPSecure = "ssl";
 				$mail->Port     = 465;  
 				$mail->Username = "ourcitrus2019@gmail.com";
-				$mail->Password = "Bismillah_|123654";
+				$mail->Password = "Bismillah_|123654789";
 				$mail->Host     = "ssl://smtp.googlemail.com";
 				$mail->Mailer   = "smtp";
 				
@@ -248,7 +260,7 @@ class EmailService extends CI_Controller {
 					
 				$filesCount = count($_FILES['attachment']['name']);
 						for($i = 0; $i < $filesCount; $i++){
-						$_FILES['file']['name']     = $_FILES['attachment']['name'][$i];
+						$_FILES['file']['name']     = $post['username'].'_'.$_FILES['attachment']['name'][$i];
 						$_FILES['file']['type']     = $_FILES['attachment']['type'][$i];
 						$_FILES['file']['tmp_name'] = $_FILES['attachment']['tmp_name'][$i];
 						$_FILES['file']['error']     = $_FILES['attachment']['error'][$i];
@@ -296,9 +308,9 @@ class EmailService extends CI_Controller {
 	$this->load->library('form_validation');
 				$this->form_validation->set_rules('fullName','Nama Lengkap','required');
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
-				//$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
-				//$this->form_validation->set_rules('wa', 'WA', 'required');
-				//$this->form_validation->set_rules('username1','UserName','required');
+				$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
+				$this->form_validation->set_rules('wa', 'WA');
+				//$this->form_validation->set_rules('username','UserName','required');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
 				$this->form_validation->set_rules('content','Pesan(Message)','required');
@@ -309,18 +321,21 @@ class EmailService extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
         {
 		$data['title'] = "OurCitrus | EmailRevisi";
+				$data['subject'] = $this->db->get('unit');
+				
 		$this->template->load('template', 'Form_Mail_service/emailrevisi', $data);
 		$this->load->view('chat.php');
 		}else{
-			if(isset($_POST['add'])):
+			if(isset($_POST['add_revisi'])):
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
 				
-				if($post['gantinorek']):
+				if($post['gantinorek'] != ''):
 				$aduan = "Ganti No Rekening";
-				elseif($post['loginerr']):
+				elseif($post['loginerr'] != ''):
 				$aduan = "Ganti password login";
-				elseif($post['gantinorek'] || $post['loginerr']):
+				endif;
+				if($post['gantinorek'] != '' && $post['loginerr'] != ''):
 				$aduan = "Ganti password login | Revisi Data Bank";
 				endif;
 				
@@ -333,11 +348,11 @@ class EmailService extends CI_Controller {
 						<table border="1">
 						<tr style="background-color:#F8F8FF;">
 						<th>Username</th>
-						<th>Aduan</th>
+						<th>Layanan</th>
 						<th>Email</th>
 						<th>No Telp</th>
 						<th>No WhatsApp</th>
-						<th>Bank</th>
+						<th>Ganti Bank / Rekening</th>
 						<th>Message</th>
 						</tr>
 						<tr>
@@ -347,7 +362,7 @@ class EmailService extends CI_Controller {
 						<td>'.$post['userEmail'].'</td>
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
-						<td> '.$post['bank'].' - '.$post['norek'].' </td>
+						<td> Bank Sebelumnya : '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' <br/> Bank Baru : '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
 						<td>'.$post["content"].'</td>
 						</tr>
 						</table>';
@@ -358,7 +373,7 @@ class EmailService extends CI_Controller {
 				$mail->SMTPSecure = "ssl";
 				$mail->Port     = 465;  
 				$mail->Username = "ourcitrus2019@gmail.com";
-				$mail->Password = "Bismillah_|123654";
+				$mail->Password = "Bismillah_|123654789";
 				$mail->Host     = "ssl://smtp.googlemail.com";
 				$mail->Mailer   = "smtp";
 				
@@ -396,7 +411,7 @@ class EmailService extends CI_Controller {
 					
 				$filesCount = count($_FILES['attachment']['name']);
 						for($i = 0; $i < $filesCount; $i++){
-						$_FILES['file']['name']     = $_FILES['attachment']['name'][$i];
+						$_FILES['file']['name']     = $post['username'].'_'.$_FILES['attachment']['name'][$i];
 						$_FILES['file']['type']     = $_FILES['attachment']['type'][$i];
 						$_FILES['file']['tmp_name'] = $_FILES['attachment']['tmp_name'][$i];
 						$_FILES['file']['error']     = $_FILES['attachment']['error'][$i];

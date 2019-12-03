@@ -15,3 +15,5 @@
 [18-Nov-2019 04:09:30 UTC] PHP Fatal error:  require_once(): Failed opening required 'invoice_ourcitrus/excel_reader2.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/ourcitru/public_html/admin/application/controllers/Invoice.php on line 2
 [18-Nov-2019 04:19:00 UTC] PHP Fatal error:  require_once(): Failed opening required 'invoice_ourcitrus/excel_reader2.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/ourcitru/public_html/admin/application/controllers/Invoice.php on line 5
 [18-Nov-2019 07:10:40 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/ourcitru/public_html/admin/application//uploads/excel_reader2.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/ourcitru/public_html/admin/application/views/invoice.php on line 2
+[23-Nov-2019 16:01:32 UTC] PHP Fatal error:  Class 'name' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229
+[23-Nov-2019 16:23:16 UTC] PHP Fatal error:  Class 'username' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229

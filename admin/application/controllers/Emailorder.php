@@ -25,6 +25,8 @@ class Emailorder extends CI_Controller {
 		$data['row'] = $this->order_m->TampilOrder();
 		$data['files'] = $this->file->tampilFiles();
 		//$data['join'] = $this->file->joinTable();
+		$data['usernamefiles'] = $this->file->tampilUsernameFiles();
+		$data['usernamedata'] = $this->order_m->ambilusernameData();
 		$this->template->load('admin/template', 'admin/emailorder', $data);
 	}
 	

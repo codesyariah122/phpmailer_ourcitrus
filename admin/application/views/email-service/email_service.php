@@ -20,7 +20,7 @@
 
 <div class="col-sm-12 col-md-4 mt-2">
 <div class="card text-white" style="width: 18rem;">
-<img src="<?=base_url()?>assets/img/parallax31.jpg" class="card-img-top" alt="...">
+<img src="<?=base_url()?>assets/img/parallax36.jpg" class="card-img-top" alt="...">
   <div class="card-body bg-dark">
   <h5 class="card-title">Email Revisi</h5>
   <small>Silahkan Dibaca Mengenai layanan mail service <b><font color="Goldenrod">Email Revisi</font></b> ourcitrus</small>
@@ -55,4 +55,4 @@
 
 </div>
 </div>
-<br/><br/>
+<br/>

@@ -1,5 +1,5 @@
 <div class="container">
-<h1 class="text-center">From Email order</h1>
+<h1 class="text-center">Form Email order</h1>
 <div class="row">
 <?php $this->view('message.php'); ?>
 <?= form_open_multipart('') ?>
@@ -28,11 +28,11 @@
 	</div>
   </div>
   
-  <div class="col-sm-8">
+   <div class="col-sm-8">
   <div class="form-group">
     <label for="notelp">No Telp</label>
 		<?php echo form_error('notelp'); ?>
-    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="notelp" value="<?=set_value('notelp');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx-xxxx-xxxx">
   </div>
   </div>
   
@@ -40,7 +40,7 @@
   <div class="form-group">
     <label for="wa">No WhatsApp</label>
 		<?php echo form_error('wa'); ?>
-    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="wa" value="<?=set_value('wa');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx-xxxx-xxxx">
   </div>
   </div>
   
@@ -76,7 +76,7 @@
   
 <div class="col-sm-8">
   <div class="form-group">
-	<button type="submit" name="add" class="btn btn-primary">Send Now</button>
+	<button type="submit" name="add_order" class="btn btn-primary">Send Now</button>
 	</div>
 	</div>
 <?= form_close() ?>

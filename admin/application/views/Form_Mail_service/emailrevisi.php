@@ -1,5 +1,5 @@
 <div class="container">
-<h1 class="text-center">From Email Revisi</h1>
+<h1 class="text-center">Form Email Revisi</h1>
 <div class="row">
 <?php $this->view('message.php'); ?>
 <?= form_open_multipart('') ?>
@@ -31,7 +31,7 @@
   <div class="form-group">
     <label for="notelp">No Telp</label>
 		<?php echo form_error('notelp'); ?>
-    <input type="number"  class="demoInputBox form-control" id="notelp" value="<?=set_value('notelp');?>" name="notelp" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="notelp" value="<?=set_value('notelp');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx- xxxx-xxxx">
   </div>
   </div>
   
@@ -39,34 +39,45 @@
   <div class="form-group">
     <label for="wa">No WhatsApp</label>
 		<?php echo form_error('wa'); ?>
-    <input type="number"  class="demoInputBox form-control" id="wa" value="<?=set_value('wa');?>" name="wa" placeholder="+62 xxxx xxxx">
+	<input type="tel" id="notelp" name="wa" value="<?=set_value('wa');?>" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="demoInputBox form-control"  placeholder="xxxx- xxxx-xxxx">
   </div>
   </div>
   
   <div class="form-group">
   <p>
-    <button class="btn btn-info ml-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-info ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Ganti No Rekening
     </button>
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
+	 <div class="col-sm-8">
+    <label for="username">Username</label>
+	<br/><small>username login kemitraan anda di ourcitrus</small>
+    <input type="text"  class="demoInputBox form-control" id="username" name="gantinorek" placeholder="username_anda">
+  </div>
 	<div class="col-sm-8">
-		<label for="username">Username</label>
-		<br/><small>username login kemitraan anda di ourcitrus</small>
-		<input type="text"  class="demoInputBox form-control" id="username" name="gantinorek" placeholder="username_anda">
-	  </div>
-  
-	<div class="col-sm-8">
-        <label for="bank">Nama Bank</label>
+        <label for="bank">Nama Bank sebelumnya</label>
       <br/><small></small>
-        <input type="text"  class="demoInputBox form-control" id="bank" name="bank" placeholder="Bank XXX">
+        <input type="text"  class="demoInputBox form-control" id="bank" name="banksebelumnya" placeholder="">
       </div>
 	  
       <div class="col-sm-8">
-        <label for="norek">No Rekening</label>
+        <label for="norek">No Rekening sebelumnya</label>
+      <br/><small>isi dengan no rekening sebelumnya</small>
+        <input type="text"  class="demoInputBox form-control" id="norek" name="noreksebelumnya" placeholder="">
+      </div>
+	  
+	  <div class="col-sm-8">
+        <label for="bank">Nama Bank Baru</label>
+      <br/><small></small>
+        <input type="text"  class="demoInputBox form-control" id="bank" name="bankbaru" placeholder="">
+      </div>
+	  
+      <div class="col-sm-8">
+        <label for="norek">No Rekening Baru</label>
       <br/><small>isi dengan no rekening baru</small>
-        <input type="text"  class="demoInputBox form-control" id="norek" name="norek" placeholder="rek.xxxxxx">
+        <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="">
       </div>
 	  
       </div>
@@ -76,7 +87,7 @@
    <div class="form-group">
   <small class="text-center">Ganti password Login( jika anda lupa password )</small>
   <p>
-    <button class="btn btn-success ml-3" type="button" data-toggle="collapse" data-target="#aduan" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-success ml-3 btn-block" type="button" data-toggle="collapse" data-target="#aduan" aria-expanded="false" aria-controls="collapseExample">
       Ganti Password Login
     </button>
   </p>
@@ -90,7 +101,7 @@
  </div>
  </div>
  </div>
-  
+   
   <div class="col-sm-8">
   <div class="form-group">
     <label for="subject">Subject Email</label>
@@ -121,7 +132,7 @@
   
 <div class="col-sm-8">
   <div class="form-group">
-	<button type="submit" name="add" class="btn btn-primary">Send Now</button>
+	<button type="submit" name="add_revisi" class="btn btn-primary">Send Now</button>
 	</div>
 	</div>
 <?= form_close() ?>

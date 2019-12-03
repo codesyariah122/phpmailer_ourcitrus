@@ -26,6 +26,12 @@ class File extends CI_Model{
 		$query = $this->db->query("SELECT * FROM files;");
 		return $query;
 	}
+	
+	public function tampilUsernameFiles()
+	{
+		$query = $this->db->query("SELECT username FROM files;");
+		return $query->result();
+	}
     
     /*
      * Insert file data into the database

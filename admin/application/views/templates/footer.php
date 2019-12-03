@@ -1,36 +1,35 @@
-
-<!-- Footer -->
 <footer class="footer bg-dark">
-
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-      <p class="text-center text-white">Made with <i class="fa fa-heart pulse" style="color:salmon"></i> in <a href="https://ourcitrus.id/" style="color:PaleVioletRed; font-weight:bold;" target="_blank">Sidoarjo | Indonesia</a>&nbsp;<i class="fa fa-leaf pulse" style="color:lightgreen"></i>
-	  </p>   
-
+      <div class="container">
+        <span class="text-white">Made With <i class="fa fa-heart" style="color:#ff501b;"></i> By OURCITRUS TEAM.</span>
       </div>
+    </footer>
 
 
-</footer>
-<!-- Footer -->
 <!-- Optional JavaScript -->
+	
+	 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+<script type="text/javascript">
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="https://cdn.tutorialzine.com/misc/enhance/v2.js" async></script>
+ var jumboHeight = $('.jumbotron').outerHeight();
+function parallax(){
+    var scrolled = $(window).scrollTop();
+    $('.bg').css('height', (jumboHeight-scrolled) + 'px');
+}
+
+$(window).scroll(function(e){
+    parallax();
+});
+</script>
+
 <script>
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover();   
 });
 </script>
-	<script src="<?=base_url()?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
 	<script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 	
   </body>

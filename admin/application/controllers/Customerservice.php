@@ -23,6 +23,7 @@ class Customerservice extends CI_Controller {
 		$data['logo_max'] = "<span class='logo-lg'><b>OURCITRUS</b></span> <i class='fa fa-cubes'></i>";
 
 		$data['row'] = $this->order_m->TampilService();
+		$data['files'] = $this->file->tampilFiles();
 
 		$this->template->load('admin/template', 'admin/customerservice', $data);
 	}

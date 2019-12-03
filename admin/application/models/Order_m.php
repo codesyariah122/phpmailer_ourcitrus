@@ -18,7 +18,7 @@ class Order_m extends CI_Model {
 	
 	public function add($post, $data =[])
     {
-		if($post['gantinorek']):
+				if($post['gantinorek']):
 				$aduan = "Ganti No Rekening";
 				elseif($post['bonus']):
 				$aduan = "Komplain Bonus";
@@ -27,17 +27,21 @@ class Order_m extends CI_Model {
 				elseif($post['subject'] == 'email-order'):
 				$aduan = "Order Via Email";
 				endif;
-		$bank = $post['bank'];
-		$bank .= ' - '; 
-		$bank .= $post['norek'];
+		$bank1 = $post['banksebelumnya'];
+		$bank1 .= ' - '; 
+		$bank1 .= $post['noreksebelumnya'];
+		$bank2 = $post['bankbaru'];
+		$bank2 .= ' - ';
+		$bank2 .= $post['norekbaru'];
         $params = [
-                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
+                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $post['fullName']))),
 					'email' => $post['userEmail'],
 					'username' => $post['username'],
 					'notelp' => $post['notelp'],
 					'wa' => $post['wa'],
 					'aduan' => $aduan,
-					'bank' => $bank,
+					'bank1' => $bank1,
+					'bank2' => $bank2,
 					//'image' => $post['image'],
 					'subject' => $post['subject'],
 					'pesan' => $post['content']
@@ -51,9 +55,10 @@ class Order_m extends CI_Model {
         $this->db->delete('data');
     }
 	
-	public function joinFile()
+	public function ambilusernameData()
 	{
-		$this->file->file_by_username();
+		$query = $this->db->query('SELECT id, username FROM data');
+		return $query;
 	}
 	
 	public function TampilOrder(){
@@ -61,11 +66,11 @@ class Order_m extends CI_Model {
 	}
 	
 	public function TampilRevisi(){
-		return $this->db->query("SELECT id, nama, email, subject, pesan, created, updated FROM data WHERE subject='email-revisi'");
+		return $this->db->query("SELECT id, nama, email, username, subject, pesan, created, updated FROM data WHERE subject='email-revisi'");
 	}
 	
 	public function TampilService(){
-		return $this->db->query("SELECT id, nama, email, subject, pesan, created, updated FROM data WHERE subject='customer-service'");
+		return $this->db->query("SELECT id, nama, email, username, subject, pesan, created, updated FROM data WHERE subject='customer-service'");
 	}
 	
 	public function input_data($table, $data){
