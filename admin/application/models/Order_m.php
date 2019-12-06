@@ -18,36 +18,83 @@ class Order_m extends CI_Model {
 	
 	public function add($post, $data =[])
     {
-				if($post['gantinorek']):
-				$aduan = "Ganti No Rekening";
-				elseif($post['bonus']):
-				$aduan = "Komplain Bonus";
-				elseif($post['loginerr']):
-				$aduan = "Lupa / Ganti Password";
-				elseif($post['subject'] == 'email-order'):
-				$aduan = "Order Via Email";
-				endif;
-		$bank1 = $post['banksebelumnya'];
-		$bank1 .= ' - '; 
-		$bank1 .= $post['noreksebelumnya'];
-		$bank2 = $post['bankbaru'];
-		$bank2 .= ' - ';
-		$bank2 .= $post['norekbaru'];
         $params = [
-                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $post['fullName']))),
-					'email' => $post['userEmail'],
-					'username' => $post['username'],
-					'notelp' => $post['notelp'],
-					'wa' => $post['wa'],
-					'aduan' => $aduan,
-					'bank1' => $bank1,
-					'bank2' => $bank2,
-					//'image' => $post['image'],
-					'subject' => $post['subject'],
-					'pesan' => $post['content']
+                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
+					'email' => $_POST['userEmail'],
+					'username' => $_POST['username'],
+					'notelp' => $_POST['notelp'],
+					'wa' => $_POST['wa'],
+					//'image' => $_POST['image'],
+					'subject' => $_POST['subject'],
+					'pesan' => $_POST['content']
         ];
 			$this->db->insert($this->table, $params);
     }
+	
+	public function cs()
+	{
+		if($_POST['gantinorek']):
+				$aduan = "Ganti No Rekening";
+		elseif($_POST['bonus']):
+				$aduan = "Komplain Bonus";
+		elseif($_POST['loginerr']):
+				$aduan = "Lupa / Ganti Password";
+		else:
+				$aduan = "tidak ada";
+		endif;
+		$bank1 = $_POST['banksebelumnya'];
+		$bank1 .= ' - '; 
+		$bank1 .= $_POST['noreksebelumnya'];
+		$bank2 = $_POST['bankbaru'];
+		$bank2 .= ' - ';
+		$bank2 .= $_POST['norekbaru'];
+        $params = [
+                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
+					'email' => $_POST['userEmail'],
+					'username' => $_POST['username'],
+					'notelp' => $_POST['notelp'],
+					'wa' => $_POST['wa'],
+					'aduan' => $aduan,
+					'bank1' => $bank1,
+					'bank2' => $bank2,
+					//'image' => $_POST['image'],
+					'subject' => $_POST['subject'],
+					'pesan' => $_POST['content']
+					];
+	}
+	
+	public function revisi()
+	{
+		if($_POST['gantinorek']):
+				$aduan = "Ganti No Rekening";
+		elseif($_POST['bonus']):
+				$aduan = "Komplain Bonus";
+		elseif($_POST['loginerr']):
+				$aduan = "Lupa / Ganti Password";
+		else:
+				$aduan = "tidak ada";
+		endif;
+				
+		$bank1 = $_POST['banksebelumnya'];
+		$bank1 .= ' - '; 
+		$bank1 .= $_POST['noreksebelumnya'];
+		$bank2 = $_POST['bankbaru'];
+		$bank2 .= ' - ';
+		$bank2 .= $_POST['norekbaru'];
+        $params = [
+                    'nama' => htmlspecialchars(strtolower(str_replace(' ','', $_POST['fullName']))),
+					'email' => $_POST['userEmail'],
+					'username' => $_POST['username'],
+					'notelp' => $_POST['notelp'],
+					'wa' => $_POST['wa'],
+					'aduan' => $aduan,
+					'bank1' => $bank1,
+					'bank2' => $bank2,
+					//'image' => $_POST['image'],
+					'subject' => $_POST['subject'],
+					'pesan' => $_POST['content']
+					];
+	}
 
        public function del($id)
     {

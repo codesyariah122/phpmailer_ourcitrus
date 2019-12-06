@@ -30,7 +30,7 @@ class File extends CI_Model{
 	public function tampilUsernameFiles()
 	{
 		$query = $this->db->query("SELECT username FROM files;");
-		return $query->result();
+		return $query;
 	}
     
     /*

@@ -2,7 +2,7 @@
 <h1 class="text-center">Form Email Revisi</h1>
 <div class="row">
 <?php $this->view('message.php'); ?>
-<?= form_open_multipart('') ?>
+<?= form_open_multipart('EmailService/EmailRevisi') ?>
 <div class="col-sm-8">
   <div class="form-group">
     <label for="name">Nama Lengkap</label>

@@ -17,3 +17,4 @@
 [18-Nov-2019 07:10:40 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/ourcitru/public_html/admin/application//uploads/excel_reader2.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/ourcitru/public_html/admin/application/views/invoice.php on line 2
 [23-Nov-2019 16:01:32 UTC] PHP Fatal error:  Class 'name' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229
 [23-Nov-2019 16:23:16 UTC] PHP Fatal error:  Class 'username' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229
+[06-Dec-2019 07:35:10 UTC] PHP Fatal error:  Cannot re-assign auto-global variable _POST in /home/ourcitru/public_html/admin/application/models/Order_m.php on line 19

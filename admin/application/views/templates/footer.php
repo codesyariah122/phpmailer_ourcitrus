@@ -1,6 +1,16 @@
 <footer class="footer bg-dark">
-      <div class="container">
-        <span class="text-white">Made With <i class="fa fa-heart" style="color:#ff501b;"></i> By OURCITRUS TEAM.</span>
+      <div class="container text-white">
+	  <div class="mt-2">
+        <span>
+		<br/>Made With <i class="fa fa-heart" style="color:#ff501b;"></i> By OURCITRUS TEAM.<br/><br/>
+		<address>
+		<strong>OurCitrus Office</strong> <i class="fa fa-connectdevelop" aria-hidden="true"></i><br>
+		Mutiara Regency Blok A-1 / No.55<br>
+		Sidoarjo, Jawa Timur 61225<br>
+		<abbr title="Telepon Kantor">Phone :</abbr> 031 - 9971 5225
+		</address>
+		</span><br/>
+		</div>
       </div>
     </footer>
 
@@ -30,7 +40,7 @@ $(document).ready(function(){
 });
 </script>
 
-	<script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 	
   </body>
 </html>

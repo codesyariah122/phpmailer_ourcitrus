@@ -1,6 +1,5 @@
 <?php
 require_once(APPPATH. 'libraries/phpmailer/PHPMailerAutoload.php');
-//require_once(APPPATH. 'libraries/phpmailer/class.smtp.php');
 
 class EmailService extends CI_Controller {
 	private $emailSend = "ourcitrus@ourcitrus.id";
@@ -173,16 +172,14 @@ class EmailService extends CI_Controller {
 				elseif($post['bonus'] != ''):
 				$aduan = "Komplain Bonus";
 				endif;
+				
 				if($post['gantinorek'] != '' && $post['loginerr'] != '' && $post['bonus'] != '' ):
 				$aduan = "Ganti password login | Revisi Data Bank | Komplain Bonus";
-				endif;
-				if($post['gantinorek'] != '' && $post['loginerr'] != ''):
+				elseif($post['gantinorek'] != '' || $post['loginerr'] != ''):
 				$aduan = "Revisi Data Bank | Ganti Password Login";
-				endif;
-				if($post['gantinorek'] != '' && $post['bonus'] != ''):
+				elseif($post['gantinorek'] != '' || $post['bonus'] != ''):
 				$aduan = "Revisi Data Bank | Komplain Bonus";
-				endif;
-				if($post['loginerr'] != '' && $post['bonus'] != ''):
+				elseif($post['loginerr'] != '' || $post['bonus'] != ''):
 				$aduan = "Ganti Password | Komplain Bonus";
 				endif;
 				
@@ -200,14 +197,14 @@ class EmailService extends CI_Controller {
 						<th>Email</th>
 						<th>No Telp</th>
 						<th>WhatsApp</th>
-						<th>Ganti Bank/Rekening</th>
+						<th>Revisi Data Bank/Rekening</th>
 						<th>Message</th>
 						</tr>
 						<tr>
 						<td>'
 						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
-						<td>'.$post['bank'].' - '.$post['norek'].'</td>
+						<td>'.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].'</td>
 						<td>'.$post['userEmail'].'</td>
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
@@ -248,7 +245,7 @@ class EmailService extends CI_Controller {
 					redirect('MailSend/err_page?id=err');
 				} else {
 					
-					$this->order_m->add($post);
+					$this->order_m->cs($post);
 					
 					$this->session->set_flashdata('success', 'Data Berhasil disimpan ke database ourcitrus');
 					echo "<script>
@@ -399,7 +396,7 @@ class EmailService extends CI_Controller {
 					redirect('MailSend/err_page?id=err');
 				} else {
 					
-					$this->order_m->add($post);
+					$this->order_m->revisi($post);
 					
 					$this->session->set_flashdata('success', 'Data Berhasil disimpan ke database ourcitrus');
 					echo "<script>
