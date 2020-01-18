@@ -80,6 +80,13 @@
         <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="">
       </div>
 	  
+	  <div class="col-sm-8">
+        <label for="noktp">No KTP</label>
+		<?php echo form_error('noktp'); ?>
+      <br/><small>Penting : untuk keamanan, bila anda ingin menggunakan layanan email revisi untuk melakukan revisi data bank login username anda, mohon sertakan no identitas yang valid.</small>
+        <input type="text"  class="demoInputBox form-control" id="noktp" name="noktp" placeholder="Isi dengan No identitas anda yang valid">
+      </div>
+	  
       </div>
     </div>
   </div>
@@ -93,10 +100,18 @@
   </p>
    <div class="collapse" id="aduan">
     <div class="card card-body">
+	
  <div class="col-sm-8">
     <label for="username2">Username</label>
 	<br/><small>username login kemitraan anda di ourcitrus</small>
     <input type="text"  class="demoInputBox form-control" id="username2" name="loginerr" placeholder="username_anda">
+  </div>
+  
+  <div class="col-sm-8">
+    <label for="ktp">No KTP</label>
+	<?php echo form_error('noktp'); ?>
+	<br/><small>Penting : untuk keamanan, bila anda ingin menggunakan layanan email revisi untuk mengganti password login username anda, mohon sertakan no identitas yang valid.</small>
+    <input type="text"  class="demoInputBox form-control" id="noktp" name="noktp" placeholder="Isi dengan No identitas anda yang valid">
   </div>
  </div>
  </div>

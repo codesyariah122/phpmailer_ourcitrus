@@ -1,4 +1,5 @@
 <?php
+
 require_once(APPPATH. 'libraries/phpmailer/PHPMailerAutoload.php');
 
 class EmailService extends CI_Controller {
@@ -11,6 +12,7 @@ class EmailService extends CI_Controller {
 		
                         $this->template->load('template', 'email-service/email_service', $data);
 						$this->load->view('chat.php');
+						$this->load->view('whatsapp.php');
 	}
 	
 	public function EmailOrder()
@@ -57,7 +59,7 @@ class EmailService extends CI_Controller {
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
 						<td>'.$post['subject'].'</td>
-						<td>'.$post["content"].'</td>
+						<td>'.nl2br($post["content"]).'</td>
 						</tr>
 						</table>';
 						
@@ -150,6 +152,7 @@ class EmailService extends CI_Controller {
 				$this->form_validation->set_rules('username','UserName','required');
 				$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
 				$this->form_validation->set_rules('wa', 'WA');
+				$this->form_validation->set_rules('noktp', 'NoKTP', 'required');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
 				$this->form_validation->set_rules('content','Pesan(Message)','required');
@@ -193,6 +196,7 @@ class EmailService extends CI_Controller {
 						<tr style="background-color:#F8F8FF;">
 						<th>Username</th>
 						<th>Layanan</th>
+						<th>No KTP</td>
 						<th>Bank</th>
 						<th>Email</th>
 						<th>No Telp</th>
@@ -204,12 +208,13 @@ class EmailService extends CI_Controller {
 						<td>'
 						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
+						<td>'.$post['noktp'].'</td>
 						<td>'.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].'</td>
 						<td>'.$post['userEmail'].'</td>
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
 						<td> Bank Sebelumnya : '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' <br/> Bank Baru : '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
-						<td>'.$post["content"].'</td>
+						<td>'.nl2br($post["content"]).'</td>
 						</tr>
 						</table>';
 
@@ -307,6 +312,7 @@ class EmailService extends CI_Controller {
 				$this->form_validation->set_rules('userEmail','Alamat Email','required');
 				$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
 				$this->form_validation->set_rules('wa', 'WA');
+				$this->form_validation->set_rules('noktp', 'NoKTP', 'required');
 				//$this->form_validation->set_rules('username','UserName','required');
 				//$this->form_validation->set_rules('bank','Bank','required');
 				//$this->form_validation->set_rules('norek','noRekening','required');
@@ -326,8 +332,8 @@ class EmailService extends CI_Controller {
 			if(isset($_POST['add_revisi'])):
 			$mail = new PHPMailer();
 				$post=$this->input->post(null, TRUE);
-				
-				if($post['gantinorek'] != ''):
+
+				if($post['gantinorek'] != '' ):
 				$aduan = "Ganti No Rekening";
 				elseif($post['loginerr'] != ''):
 				$aduan = "Ganti password login";
@@ -335,7 +341,6 @@ class EmailService extends CI_Controller {
 				if($post['gantinorek'] != '' && $post['loginerr'] != ''):
 				$aduan = "Ganti password login | Revisi Data Bank";
 				endif;
-				
 					$body = '
 						<html>
 						<body>
@@ -346,6 +351,7 @@ class EmailService extends CI_Controller {
 						<tr style="background-color:#F8F8FF;">
 						<th>Username</th>
 						<th>Layanan</th>
+						<th>No KTP</td>
 						<th>Email</th>
 						<th>No Telp</th>
 						<th>No WhatsApp</th>
@@ -356,11 +362,12 @@ class EmailService extends CI_Controller {
 						<td>'
 						.$post['username'].'</td>
 						<td>'.$aduan.'</td>
+						<td>'.$post['noktp'].'</td>
 						<td>'.$post['userEmail'].'</td>
 						<td>'.$post['notelp'].'</td>
 						<td>'.$post['wa'].'</td>
 						<td> Bank Sebelumnya : '.$post['banksebelumnya'].' - '.$post['noreksebelumnya'].' <br/> Bank Baru : '.$post['bankbaru'].' - '.$post['norekbaru'].' </td>
-						<td>'.$post["content"].'</td>
+						<td>'.nl2br($post["content"]).'</td>
 						</tr>
 						</table>';
 
@@ -444,6 +451,7 @@ class EmailService extends CI_Controller {
         }	
 
 		endif;		
+
 							 
 		}
 	}

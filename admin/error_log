@@ -18,3 +18,4 @@
 [23-Nov-2019 16:01:32 UTC] PHP Fatal error:  Class 'name' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229
 [23-Nov-2019 16:23:16 UTC] PHP Fatal error:  Class 'username' not found in /home/ourcitru/public_html/admin/system/database/drivers/mysqli/mysqli_result.php on line 229
 [06-Dec-2019 07:35:10 UTC] PHP Fatal error:  Cannot re-assign auto-global variable _POST in /home/ourcitru/public_html/admin/application/models/Order_m.php on line 19
+[26-Dec-2019 01:37:31 UTC] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/ourcitru/public_html/admin/application/controllers/EmailService.php on line 455

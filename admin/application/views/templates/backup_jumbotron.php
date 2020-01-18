@@ -1,13 +1,70 @@
-.jumboku
-		{
-					  background-image: url("<?=base_url()?>assets/img/parallax31.jpg");
-					  background-repeat: no-repeat;
-					  background-size: cover;
-					  color: #faf0f0;
-					  /*text-shadow: 3px 2px rgb(99, 126, 151);*/
-					  height: 30em;
-		}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	left:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
 
+.my-float{
+	margin-top:16px;
+}
+
+	header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+		.red-pop{
+			color: red;
+			font-weight: bold;
+		}
 
 <div class="jumbotron jumboku bg-dark">
   <div class="container text-center mt-4">
@@ -39,3 +96,21 @@
   <!-- /.container -->
 </div>
 
+
+<!-- header video background -->
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<?=base_url()?>assets/waterink.mp4" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">EMAIL SERVICE OURCITRUS</h1>
+        <p class="lead mb-0">Kami Akan Menjadi Jembatan Menuju kesuksesan Anda. <b>Salam gemilang ...</b></p>
+		<hr style="color:salmon;">
+		<small class="mt-4">OURCITRUS BY PT.GEMILANG CITRUS BERJAYA</small>
+      </div>
+    </div>
+  </div>
+</header>

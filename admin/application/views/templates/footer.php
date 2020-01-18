@@ -40,6 +40,10 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+$('.popover-dismiss').popover({ trigger: 'focus' })
+</script>
+
 <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 	
   </body>

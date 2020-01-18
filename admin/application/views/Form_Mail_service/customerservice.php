@@ -80,6 +80,13 @@
         <input type="text"  class="demoInputBox form-control" id="norek" name="norekbaru" placeholder="">
       </div>
 	  
+	   <div class="col-sm-8">
+        <label for="noktp">No KTP</label>
+		<?php echo form_error('noktp'); ?>
+      <br/><small>Penting : untuk keamanan, bila anda ingin menggunakan layanan email revisi untuk melakukan revisi data bank login username anda, mohon sertakan no identitas yang valid.</small>
+        <input type="text"  class="demoInputBox form-control" id="noktp" name="noktp" placeholder="Isi dengan No identitas anda yang valid">
+      </div>
+	  
       </div>
     </div>
   </div>
@@ -110,17 +117,24 @@
         <input type="text"  class="demoInputBox form-control" id="noreksebelumnya" name="norek" placeholder="rek.xxxxxx">
       </div>
 	  
+	  <div class="col-sm-8">
+        <label for="noktp">No KTP </label>
+		<?php echo form_error('noktp'); ?>
+      <br/><small>Penting : untuk keamanan, bila anda ingin menggunakan layanan email revisi untuk melakukan revisi data bank login username anda, mohon sertakan no identitas yang valid.</small>
+        <input type="text"  class="demoInputBox form-control" id="noktp" name="noktp" placeholder="Isi dengan No identitas anda yang valid">
+      </div>
+	  
 	  
       </div>
     </div>
   </div>
   
   <div class="form-group">
-  <small class="text-center">Ketikan dikolom pesan dibagian paling bawah form ini, mengenai login anda yang bermasalah.</small>
   <p>
     <button class="btn btn-warning ml-3 btn-block" type="button" data-toggle="collapse" data-target="#collapsepassword" aria-expanded="false" aria-controls="collapseExample">
       <font color="white">Permasalahan Login</font>
     </button>
+	<small class="ml-2 mt-4 text-center text-danger">Ketikan dikolom pesan dibagian paling bawah form ini, mengenai login anda yang bermasalah.</small>
   </p>
   <div class="collapse" id="collapsepassword">
     <div class="card card-body">
@@ -130,6 +144,13 @@
 	<br/><small>username login kemitraan anda di ourcitrus</small>
     <input type="text"  class="demoInputBox form-control" id="username" name="loginerr" placeholder="username_anda">
   </div>
+  
+  	   <div class="col-sm-8">
+        <label for="noktp">No KTP</label>
+		<?php echo form_error('noktp'); ?>
+      <br/><small>Penting : untuk keamanan, bila anda ingin menggunakan layanan email revisi untuk melakukan revisi data bank login username anda, mohon sertakan no identitas yang valid.</small>
+        <input type="text"  class="demoInputBox form-control" id="noktp" name="noktp" placeholder="Isi dengan No identitas anda yang valid">
+      </div>
   
       </div>
     </div>

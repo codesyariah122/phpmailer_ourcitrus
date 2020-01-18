@@ -57,6 +57,7 @@ class Order_m extends CI_Model {
 					'aduan' => $aduan,
 					'bank1' => $bank1,
 					'bank2' => $bank2,
+					'noktp' => $_POST['noktp'],
 					//'image' => $_POST['image'],
 					'subject' => $_POST['subject'],
 					'pesan' => $_POST['content']
@@ -90,6 +91,7 @@ class Order_m extends CI_Model {
 					'aduan' => $aduan,
 					'bank1' => $bank1,
 					'bank2' => $bank2,
+					'noktp' => $_POST['noktp'],
 					//'image' => $_POST['image'],
 					'subject' => $_POST['subject'],
 					'pesan' => $_POST['content']
